@@ -1,0 +1,45 @@
+.footer {
+   height: 200px;
+   background-color: $darkFooter;
+   color: #fff;
+   padding: 3rem 0;
+
+   &-help {
+      &__link {
+         width: 35px;
+         height: 35px;
+         border-radius: 50%;
+         padding: 0.1rem;
+         margin-right: 1rem;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background-color: #fff;
+      }
+      &__img {
+         width: 30px;
+         height: 30px;
+      }
+   }
+   
+   &__tag {
+      font-size: 1.5rem;
+      margin-bottom: .5rem;
+      display: block;
+   }
+
+   ul {
+      padding-left: 0;
+   }
+
+   &__item {
+      list-style-type: none;
+   }
+   &__link {
+      text-decoration: none;
+      color: $lightFooter;
+      &:hover {
+         color: lightblue;
+      }
+   }
+}
