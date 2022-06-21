@@ -1,6 +1,8 @@
 .header {
    font-size: 1.8rem;
    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.15);
+   position: relative;
+   z-index: 99999;
 
    &__container {
       padding: .8rem 0;
@@ -44,7 +46,7 @@
    }
 
    &-buttons-group {
-      justify-content: center;
+      justify-content: right;
       font-size: 1.6rem;
       
       &__button {

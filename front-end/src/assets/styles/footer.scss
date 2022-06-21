@@ -3,6 +3,8 @@
    background-color: $darkFooter;
    color: #fff;
    padding: 3rem 0;
+   position: relative;
+   z-index: 99999;
 
    &-help {
       &__link {

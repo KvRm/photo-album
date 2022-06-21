@@ -1,0 +1,23 @@
+.search-container {
+   height: 6rem;
+
+   form {
+      height: 100%;
+      padding: 1rem 0;
+   }
+
+   &__input {
+      font-size: 2rem;
+      padding: 0 1rem;
+      box-shadow: 0 0 5px $dark;
+   }
+
+   &__button {
+      font-size: 2rem;
+      border-color: $green;
+      color: $green;
+      &:hover {
+         background-color: $green;
+      }
+   }
+}
