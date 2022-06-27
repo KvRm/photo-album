@@ -60,11 +60,19 @@
    .sign-up {
       color: #fff;
       background-color: $green;
+      height: 32px;
+      &:hover {
+         background-color: $darkGreen;
+      }
    }
 
    .log-in {
       color: $green;
       background-color: #fff;
       border: 1px solid $green;
+      &:hover {
+         color: $darkGreen;
+         border-color: $darkGreen;
+      }
    }
 }

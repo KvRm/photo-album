@@ -6,6 +6,10 @@
    position: relative;
    z-index: 99999;
 
+   img {
+      fill: #fff;
+   }
+
    &-help {
       &__link {
          width: 35px;

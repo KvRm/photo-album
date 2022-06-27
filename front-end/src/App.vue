@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 import HeaderComponent from './components/HeaderComponent.vue'
 import FooterComponent from './components/FooterComponent.vue'
 

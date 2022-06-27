@@ -11,9 +11,10 @@
                <small class="like-count"></small>
             </div>
          </div>
-         <p class="show-comments" @click="showComments">Show comments</p>
+         <p class="show-comments" @click="showComments(postInfo.id)">Show comments</p>
          <div class="comments" v-if="viewMode">
-            <div class="comment" >
+            <div class="comment" v-for="post in postInfo.comments.value" :key="post.id">
+            {{post.attributes.message}}
             </div>
          </div>
       </div>
@@ -36,14 +37,15 @@ export default defineComponent({
    const postInfo = {
       message: ref(''),
       image: ref(''),
-      comments: [],
+      comments: ref([]),
+      id: ref(),
    }
 
-   async function showComments() {
+   function showComments(id) {
       viewMode.value = !viewMode.value
       if (viewMode.value) {
-         await api.getOnePostInfo().then(
-            res => postInfo.comments = res.data.data.attributes.comments.data
+         api.getOnePostInfo(id.value).then(
+            res => postInfo.comments.value = res.data.data.attributes.comments.data
          )
       }
    }
@@ -51,6 +53,7 @@ export default defineComponent({
    onMounted(() => {
       postInfo.message.value = props.post.attributes.message
       postInfo.image.value = props.post.attributes.data
+      postInfo.id.value = props.post.id
    })
 
    return {

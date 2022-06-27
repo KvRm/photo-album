@@ -11,8 +11,10 @@
           </li>
         </ul>
       </div>
-      <div class="col-4 d-flex gap-4 header-buttons-group">
-          <button class="header-buttons-group__button sign-up">Sign Up</button>
+      <div v-if="!userAuth" class="col-4 d-flex gap-4 header-buttons-group">
+          <router-link to="/sign-up">
+            <button class="header-buttons-group__button sign-up">Sign Up</button>
+          </router-link>
           <router-link to="/authorization">
             <button class="header-buttons-group__button log-in">Log In</button>
           </router-link>
@@ -22,7 +24,7 @@
 </template>
 
 <script>
-import { defineComponent } from "vue"
+import { defineComponent, ref } from "vue"
 
 export default defineComponent({
   name: 'HeaderComponent',
@@ -33,8 +35,11 @@ export default defineComponent({
       { name: 'Create Post', path: '/new', clicked: false},
     ]
     
+    const userAuth = ref(localStorage.getItem('token'))
+
     return {
       headerMenuList,
+      userAuth
     }
   },
 })

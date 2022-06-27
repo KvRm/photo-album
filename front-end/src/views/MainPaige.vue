@@ -46,9 +46,9 @@ export default defineComponent({
 
 <style lang="scss" scoped>
   .container {
-    background-color: azure;
     padding-bottom: 10vh;
     padding-right: 1rem;
-    background-color: rgba(26, 128, 26, 0.03);
+    min-height: 100vh;
+    background-color: rgba(26, 123, 128, 0.03);
   }
 </style>
