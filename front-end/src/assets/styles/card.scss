@@ -56,4 +56,28 @@
       padding: 1rem 2rem;
       border-top: 1px solid rgba(0, 0, 0, 0.18);
    }
+
+   .comment {
+      width: 100%;
+      padding: 0 .2rem;
+      justify-content: center;
+      &-create {
+         width: 70%;
+         justify-content: center;
+         padding: 0.2rem;
+         margin: 1rem 0;
+         margin-left: 10%;
+      }
+   }
+   .post-button {
+      padding: .4rem 1.2rem;
+      border: 0;
+      border-radius: 3px;
+      color: #fff;
+      background-color: $green;
+      margin-left: 1rem;
+      &:hover {
+         background-color: $darkGreen;
+      }
+   }
 }

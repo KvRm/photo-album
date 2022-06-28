@@ -75,4 +75,14 @@
          border-color: $darkGreen;
       }
    }
+
+   &-me {
+      justify-content: right;
+      padding-right: 2rem;
+
+      &__logo {
+         width: 4rem;
+         height: 4rem;
+      }
+   }
 }

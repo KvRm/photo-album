@@ -13,8 +13,17 @@
          </div>
          <p class="show-comments" @click="showComments(postInfo.id)">Show comments</p>
          <div class="comments" v-if="viewMode">
-            <div class="comment" v-for="post in postInfo.comments.value" :key="post.id">
+            <div class="comment d-flex" v-for="post in postInfo.comments.value" :key="post.id">
             {{post.attributes.message}}
+            </div>
+            <div>
+               <input
+                  type="text"
+                  class="comment-create"
+                  placeholder="new comment"
+                  v-model="commentToPost"
+               >
+               <button class="post-button" type="button" @click="postComment">Post</button>
             </div>
          </div>
       </div>
@@ -41,6 +50,8 @@ export default defineComponent({
       id: ref(),
    }
 
+   const commentToPost = ref('')
+
    function showComments(id) {
       viewMode.value = !viewMode.value
       if (viewMode.value) {
@@ -48,6 +59,16 @@ export default defineComponent({
             res => postInfo.comments.value = res.data.data.attributes.comments.data
          )
       }
+   }
+
+   function postComment() {
+      const data = {
+         message: '' + commentToPost.value,
+         post: {
+            id: postInfo.id
+         }
+      }
+      api.postComment(data)
    }
 
    onMounted(() => {
@@ -60,6 +81,8 @@ export default defineComponent({
       viewMode,
       postInfo,
       showComments,
+      commentToPost,
+      postComment
    }
   }
 })

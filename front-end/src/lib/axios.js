@@ -7,10 +7,10 @@ class API {
 
       this.adapter.interceptors.request.use(
          (config) => {
-            // const res = config
-            // if (auth.token) {
-            //    res.headers.Authorization = `Bearer ${auth.token}`
-            // }
+            const res = config
+            if (auth.token) {
+               res.headers.Authorization = `Bearer ${auth.token}`
+            }
             return config
          })
    }
@@ -36,6 +36,12 @@ class API {
    login(data) {
       return this.adapter.post(`http://localhost:1337/api/auth/local`, data).then(response => {
          localStorage.setItem('token', response.data.jwt)
+      })
+   }
+
+   postComment(data) {
+      return this.adapter.post(`http://localhost:1337/api/comments`, data).then(response => {
+         console.log(response)
       })
    }
 }

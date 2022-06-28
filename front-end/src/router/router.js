@@ -23,6 +23,11 @@ const routes = [
     name: 'register',
     component: () => import('@/views/RegisterPaige'),
   },
+  {
+    path: '/me',
+    name: 'profile',
+    component: () => import('@/views/ProfilePaige')
+  }
 ]
 
 const router = createRouter({

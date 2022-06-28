@@ -101,12 +101,19 @@
           email.value = ''
           password.value = ''
           confirmPassword.value = ''
+          reloadAuth()
           router.replace({name: 'main'})
          })
 
       }
 
+      function reloadAuth() {
+      this.$root.$emit('renderAuth')
+      console.log(this.$root);
+      }
+
       return {
+        reloadAuth,
          name,
          email,
          password,

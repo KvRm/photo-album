@@ -28,7 +28,7 @@
 
 
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button @click="login" type="button" class="btn btn-primary btn-lg"
+              <button @click="login" type="submit" class="btn btn-primary btn-lg"
                       style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
             </div>
 
@@ -54,6 +54,7 @@ export default defineComponent({
     const password = ref('')
 
     function login() {
+      
       if(!email.value || !password.value ) { return }
 
       api.login({
@@ -62,6 +63,8 @@ export default defineComponent({
       }).then(()=> {
         email.value = ''
         password.value = ''
+        this.$root.globalVar = 1
+        console.log(this.$root.globalVar)
         setTimeout(()=>{
           router.replace({name: 'main'})
         }, 300)

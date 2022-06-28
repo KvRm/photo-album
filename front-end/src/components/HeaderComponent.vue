@@ -11,35 +11,43 @@
           </li>
         </ul>
       </div>
-      <div v-if="!userAuth" class="col-4 d-flex gap-4 header-buttons-group">
-          <router-link to="/sign-up">
-            <button class="header-buttons-group__button sign-up">Sign Up</button>
+      <div class="col-4 d-flex gap-4 header-buttons-group"
+        v-if="this.$root.globalVar == 0"
+      >
+        <router-link to="/sign-up">
+          <button class="header-buttons-group__button sign-up">Sign Up</button>
+        </router-link>
+        <router-link to="/authorization">
+          <button class="header-buttons-group__button log-in">Log In</button>
+        </router-link>
+      </div>
+      <div v-else class="col-4 d-flex header-me">
+        <div>
+          <router-link to="/me">
+            <img class="header-me__logo" src="@/assets/images/icons/Account-512.webp" alt="me">
           </router-link>
-          <router-link to="/authorization">
-            <button class="header-buttons-group__button log-in">Log In</button>
-          </router-link>
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
-import { defineComponent, ref } from "vue"
+import { defineComponent} from "vue"
 
 export default defineComponent({
   name: 'HeaderComponent',
 
-  setup() {
+  data() {
+    this.$root.globalVar = localStorage.getItem('token') ? 1 : 0
+
     const headerMenuList = [
       { name: 'Feed', path: '/', clicked: false},
       { name: 'Create Post', path: '/new', clicked: false},
     ]
-    
-    const userAuth = ref(localStorage.getItem('token'))
 
     return {
       headerMenuList,
-      userAuth
     }
   },
 })
