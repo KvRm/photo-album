@@ -4,15 +4,6 @@ class API {
    adapter
    constructor() {
       this.adapter = Axios.create()
-
-      this.adapter.interceptors.request.use(
-         (config) => {
-            const res = config
-            if (auth.token) {
-               res.headers.Authorization = `Bearer ${auth.token}`
-            }
-            return config
-         })
    }
 
    getPosts() {
