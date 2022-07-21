@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div class="col-4 d-flex gap-4 header-buttons-group"
-        v-if="this.$root.globalVar == 0"
+        v-if="!USER_AUTH_STATE"
       >
         <router-link to="/sign-up">
           <button class="header-buttons-group__button sign-up">Sign Up</button>
@@ -34,13 +34,12 @@
 
 <script>
 import { defineComponent} from "vue"
+import { mapGetters } from 'vuex'
 
 export default defineComponent({
   name: 'HeaderComponent',
 
   data() {
-    this.$root.globalVar = localStorage.getItem('token') ? 1 : 0
-
     const headerMenuList = [
       { name: 'Feed', path: '/', clicked: false},
       { name: 'Create Post', path: '/new', clicked: false},
@@ -50,6 +49,11 @@ export default defineComponent({
       headerMenuList,
     }
   },
+  computed: {
+    ...mapGetters([
+      'USER_AUTH_STATE'
+    ])
+  }
 })
 
 </script>

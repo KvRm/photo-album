@@ -63,8 +63,7 @@ export default defineComponent({
       }).then(()=> {
         email.value = ''
         password.value = ''
-        this.$root.globalVar = 1
-        console.log(this.$root.globalVar)
+        this.$store.dispatch('AUTH_USER', true)        
         setTimeout(()=>{
           router.replace({name: 'main'})
         }, 300)

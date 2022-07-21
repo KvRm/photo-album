@@ -101,6 +101,7 @@
           email.value = ''
           password.value = ''
           confirmPassword.value = ''
+          this.$store.dispatch('AUTH_USER', true)
           router.replace({name: 'main'})
          })
 

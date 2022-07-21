@@ -1,20 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
+// import auth from '../lib/auth'
 
 const routes = [
   {
     path: '/',
     name: 'main',
     component: () => import('@/views/MainPaige'),
-    // meta: {requiresAuth: true},
   },
   {
     path: '/new',
     name: 'new',
     component: () => import('@/views/CreatePost'),
-    // meta: {requiresAuth: true},
   },
   {
-    path: '/authorization',
+    path: '/log-in',
     name: 'login',
     component: () => import('@/views/LogIn'),
   },

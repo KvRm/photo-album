@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import HeaderComponent from './components/HeaderComponent.vue'
 import FooterComponent from './components/FooterComponent.vue'
 
@@ -18,14 +18,6 @@ export default defineComponent({
   components: {
     HeaderComponent, 
     FooterComponent,
-  },
-
-  data() {
-    this.$root.isAuth = ref('')
-
-    return {
-
-    }
   },
 })
 </script>
